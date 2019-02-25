@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Final_GenBlock.jnlp">
+  <information>
+    <title>Final GenBlock</title>
+    <vendor>Team 43</vendor>
+    <description>Final GenBlock</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Final_GenBlock.jar" size="669124" download="eager" />
+    <jar href="jSerialComm-2.2.0 (2018_09_09 11_39_55 UTC).jar" size="637026" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="engg2800.Main"  name="Final GenBlock" />
+  <update check="background"/>
+</jnlp>

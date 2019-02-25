@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Created-By: 10.0.1 (Oracle Corporation)
+Tool: Bnd-3.4.0.201707252008
+Bnd-LastModified: 1533935558632
+Export-Package: com.fazecast.jSerialComm;version="2.2.0"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Bundle-Vendor: Fazecast, Inc.
+Implementation-Title: jSerialComm: Java Serial Communications Library
+Implementation-Vendor: Fazecast, Inc.
+Bundle-Description: Java Serial Communications Library
+Sealed: true
+Bundle-Name: jSerialComm
+Bundle-Version: 2.2.0
+Implementation-Version: 2.2.0
+Bundle-SymbolicName: com.fazecast.jSerialComm
+
