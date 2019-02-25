@@ -1,5 +1,5 @@
 
-	/*
+/*
  * Serial.c
  *
  * Created: 20/09/2018 11:33:58 PM
@@ -64,10 +64,12 @@ int main(void){
 	double offset2 = 0;		//Volts
 	double amplitude2 = 3;	//Volts
 	int wave2 = 1;			//set wave {1=sine, 2=square, 3 = triangle, 4 = sawtooth, 5 = reverse sawtooth}
-	int freq2 =                                    1000;			//Hz
+	int freq2 = 1000;		//Hz
 	//			  //
 	int LUT_SIZE = 255;
-	int LUT_SIZE2 = 255;	
+	int LUT_SIZE2 = 255;
+
+
 	while(1){
 		memset((void*)data_package,0,7*sizeof(uint8_t));
 		if (buffer_len == 7) {
@@ -246,6 +248,7 @@ int main(void){
 					lutTemp = (int16_t)(MAX_SIZE_INT*(1-(float)i/((float)LUT_SIZE2/2))*(amplitude2/3)+127+adjusted_Offset2);
 					break;
 			}
+
 			//limit values to 255 and 0
 			if(lutTemp > 255){
 				lutTemp = 255;
@@ -324,4 +327,4 @@ int main(void){
 																			   
 			cp-p $ 10101001 00101111 00110010 10000000 00001111 11101000&  001100100101100001100100000000001111101000&
 								/		2			
-		*/
+*/

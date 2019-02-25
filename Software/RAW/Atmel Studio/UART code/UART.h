@@ -2,7 +2,7 @@
  * UART.h
  *
  * Created: 10/10/2018 1:02:18 PM
- * Author : s4398066
+ * Author : Shamsuddoha Shameem
  */
 #include <stdlib.h>
 

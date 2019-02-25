@@ -2,7 +2,7 @@
  * UART.h
  *
  * Created: 20/09/2018 1:02:18 PM
- * Author : s4398066
+ * Author : Shamsuddoha Shameem
  */
 #include <stdlib.h>
 
@@ -18,7 +18,7 @@
 #define MYUBRR F_CPU/16/BAUD-1
 
 //Short-cut
-//#define loop_until_bit_is_set(A, B) while(!(A&(1<<B)));
+#define loop_until_bit_is_set(A, B) while(!(A&(1<<B)));
 
 char sequence;
 #define nullptr 0x00
@@ -64,7 +64,7 @@ void UART_Send_String(char *string){
 	}
 }
 
-/*unsigned char* UART_Recieve_nbytes(int n){
+unsigned char* UART_Recieve_nbytes(int n){
 	// Wait for data to be received
 	boolean checkDataReady = (UCSR0A & (1<<RXC0));
 	char* recievedStr;
@@ -94,13 +94,13 @@ void UART_Send_String(char *string){
 
 	return recievedStr;
 }
-*/
 
-//  void UART_Flush(void){
-//     unsigned char dummy;
-//     while ( UCSR0A & (1<<RXC0) )
-// 		dummy = UDR0;
-// }
+
+ void UART_Flush(void){
+    unsigned char dummy;
+    while ( UCSR0A & (1<<RXC0) )
+		dummy = UDR0;
+}
 
 void UART_Send_Sequence(){
     UART_Transmit(sequence);
@@ -130,35 +130,31 @@ void UART_loop_back(){
 			UART_Send_Char_Newline(ReceivedChar);
 		}else
 			UART_Transmit(ReceivedChar);
-// 		/* Wait for data to be received */
-// 		while ( !(UCSR0A & (1<<RXC0)) ); 
-// 		ReceivedChar = UDR0;//fetch the byte into RecievedChar
-// 		
-// 		/* Wait for UDR for data to be transmitted */
-// 		while (!(UCSR0A & (1<<UDRE0))); 
-// 		UDR0 = ReceivedChar; // Echo back 
 	}
 }
 
-void UART_Test(void){
-    UART_Init(MYUBRR);
-    sequence ='H';
-	//Fancy test
-    /*char* buff ="Write a char here=> ";
+void Fancy_UART_test(void){
+    char* buff ="Write a char here=> ";
     while (1){
         UART_Send_Sequence();
-        //UART_WAIT(1);
+        //UART_WAIT(1); // not implemented since __delay_ms(s) does the job
         UART_Send_NewLine();
         _delay_ms(3000);
         UART_Send_String(buff);
         UART_Flush();
         char recieveChar = UART_Receive();
         _delay_ms(5000);
+        //Send whatever recieved with new line
+        UART_Send_String("You have send:");
         UART_Send_Char_Newline(recieveChar);
-        //UART_Send_String("You have send:");
-        //UART_Transmit(recieveChar);
-        UART_Send_NewLine();
-    }*/
+    }
+
+
+}
+
+void UART_Test(void){
+    UART_Init(MYUBRR);
+    sequence ='H';    
 	//Simple Loop back test
 	printf("MCU initiating Loop back::\n");
 	UART_loop_back();

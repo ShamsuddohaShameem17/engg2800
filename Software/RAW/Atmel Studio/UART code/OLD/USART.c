@@ -1,5 +1,4 @@
 /*
- * engg2800g43.c
  * USART MODEL
  * Created: 25/08/2018 12:39:39 PM
  * Author : Shamsuddoha Shameem
